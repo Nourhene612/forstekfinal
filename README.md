@@ -24,9 +24,7 @@ Plateforme web complète pour connecter étudiants et entreprises tunisiennes, a
 
 - [API Endpoints](#api-endpoints)-  **Mentorat** : Connexion avec des mentors professionnels
 
-- ℹ️ **À propos** : Histoire et équipe de Forstek
 
-##  Technologies-  **Contact** : Formulaire de contact et informations
 
 
 
@@ -34,7 +32,7 @@ Plateforme web complète pour connecter étudiants et entreprises tunisiennes, a
 
 - **Next.js 14** - Framework React avec App Router
 
-- **TypeScript** - Typage statique### 1️⃣ Cloner le repository
+- **TypeScript** - Typage statique### 1️ Cloner le repository
 
 - **Tailwind CSS** - Styling moderne```bash
 
@@ -46,7 +44,7 @@ cd front-end
 
 - **Flask** - Framework Python léger
 
-- **SQLAlchemy** - ORM pour la base de données### 2️⃣ Installer les dépendances
+- **SQLAlchemy** - ORM pour la base de données### 2️ Installer les dépendances
 
 - **SQLite** - Base de données```bash
 
@@ -64,31 +62,31 @@ cd front-end
 
 ### Authentificationnpm run dev
 
-- ✅ Inscription avec validation (email, mot de passe, type de compte)```
+-  Inscription avec validation (email, mot de passe, type de compte)```
 
-- ✅ Connexion avec authentification 2FA
+-  Connexion avec authentification 2FA
 
-- ✅ Codes 2FA envoyés par email (Brevo SMTP)###  Ouvrir dans le navigateur
+-  Codes 2FA envoyés par email (Brevo SMTP)###  Ouvrir dans le navigateur
 
-- ✅ Tokens JWT avec expiration 24hVisitez : **http://localhost:3000**
+-  Tokens JWT avec expiration 24hVisitez : **http://localhost:3000**
 
-- ✅ Protection des routes privées
+-  Protection des routes privées
 
-- ✅ Gestion de session avec localStorage
+-  Gestion de session avec localStorage
 
 
 
 ### Profils Utilisateurs## 🛠️ Technologies
 
-- ✅ Profil étudiant complet (bio, formation, compétences)
+-  Profil étudiant complet (bio, formation, compétences)
 
-- ✅ Profil entreprise- **Next.js 16** (App Router + Turbopack)
+-  Profil entreprise- **Next.js 16** (App Router + Turbopack)
 
-- ✅ Modification en temps réel- **TypeScript**
+-  Modification en temps réel- **TypeScript**
 
-- ✅ Upload de CV (PDF)- **Tailwind CSS v4**
+-  Upload de CV (PDF)- **Tailwind CSS v4**
 
-- ✅ Liens sociaux (LinkedIn, GitHub, Website)- **Lucide React** (Icônes)
+-  Liens sociaux (LinkedIn, GitHub, Website)- **Lucide React** (Icônes)
 
 - **Framer Motion** (Animations)
 
@@ -137,98 +135,31 @@ cd front-back-forstek│   ├── Navbar.tsx
 ### 2. Installation Frontend└── public/                # Assets statiques
 
 ```
+**Faire fonctionner le backend Flask**
 
-```bash
+Pour lancer le backend, commencez par créer un environnement virtuel avec Python 3.11 en utilisant la commande :
 
-npm install##  Commandes Disponibles
-
-```
-
-| Commande | Description |
-
-### 3. Installation Backend|----------|-------------|
-
-| `npm run dev` | Serveur de développement |
-
-```bash| `npm run build` | Build de production |
-
-cd backend-flask| `npm start` | Lancer la production |
-
-python -m venv .venv| `npm run lint` | Vérifier le code |
+py -3.11 -m venv .venv
 
 
+Ensuite, activez l’environnement virtuel :
 
-# Windows##  Pourquoi `npm install` est nécessaire ?
+.venv\Scripts\activate   # sur Windows
+# ou
+source .venv/bin/activate  # sur Mac/Linux
 
-.\.venv\Scripts\activate
 
-Le dossier **`node_modules`** (contenant ~428 packages) n'est **PAS** inclus dans Git car :
+Une fois l’environnement activé, installez les dépendances du projet avec :
 
-# Linux/Mac- Il pèse environ **500 MB**
+pip install -r requirements.txt
 
-source .venv/bin/activate- Il est listé dans `.gitignore`
 
-- Il doit être généré localement via `npm install`
+Enfin, lancez le serveur Flask avec la commande :
 
-pip install Flask Flask-Cors Flask-SQLAlchemy python-dotenv passlib PyJWT bcrypt
-
-```**Sans cette étape, le site ne fonctionnera pas !**
+flask run
 
 
 
-## ⚙️ Configuration## 🐛 Problèmes Courants
-
-
-
-### Backend - Fichier `.env`### ❌ Le serveur ne démarre pas
-
-```bash
-
-Créez `backend-flask/.env` :# Solution 1 : Réinstaller les dépendances
-
-rm -rf node_modules package-lock.json
-
-```envnpm install
-
-# JWT Configuration
-
-JWT_SECRET=votre_secret_jwt_tres_long_et_complexe_ici# Solution 2 : Vérifier Node.js
-
-JWT_ALGORITHM=HS256node --version  # Doit être >= 18.0.0
-
-ACCESS_TOKEN_EXPIRES_MINUTES=1440```
-
-REFRESH_TOKEN_EXPIRES_DAYS=7
-
-### ❌ Port 3000 occupé
-
-# Email Configuration (Brevo SMTP)Next.js choisira automatiquement un port libre (3001, 3002...)
-
-EMAIL_HOST=smtp-relay.brevo.com
-
-EMAIL_PORT=587### ❌ Erreurs de compilation
-
-EMAIL_USER=votre_email@exemple.comAssurez-vous d'avoir bien exécuté `npm install`
-
-EMAIL_PASSWORD=votre_cle_api_brevo
-
-EMAIL_FROM=noreply@forstek.tn## 📖 Documentation Complète
-
-```
-
-Pour plus de détails, consultez [INSTALLATION.md](./INSTALLATION.md)
-
-### Frontend - Configuration API
-
-## 🔐Configuration Git (pour les contributeurs)
-
-Le fichier `lib/api-config.ts` est déjà configuré pour pointer vers `http://localhost:5000/api`.
-
-```bash
-
-##  Démarragegit config user.name "Votre Nom"
-
-git config user.email "votre@email.com"
 
 ### Option 1 : Démarrage automatique (Windows)```
 
